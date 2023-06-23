@@ -38,10 +38,10 @@ void main() {
             .thenAnswer((_) async => listMovie);
 
         // Act
-        final expected = await onRemote.getListMovieDayUseCase();
+        final result = await onRemote.getListMovieDayUseCase();
 
         // Assert
-        expect(expected, ListMovie.success(list: listMovie));
+        expect(result, ListMovie.success(list: listMovie));
         verify(mockRemoteRepository.getPopularMoviesDay());
       },
     );
@@ -54,11 +54,11 @@ void main() {
         when(mockRemoteRepository.getPopularMoviesDay()).thenThrow(serverExcep);
 
         // Act
-        final expected = await onRemote.getListMovieDayUseCase();
+        final result = await onRemote.getListMovieDayUseCase();
 
         // Assert
 
-        expect(expected, ListMovie.failure(fail: remoteFail));
+        expect(result, ListMovie.failure(fail: remoteFail));
         verify(mockRemoteRepository.getPopularMoviesDay());
       },
     );
@@ -85,10 +85,10 @@ void main() {
             .thenAnswer((_) async => listMovie);
 
         // Act
-        final expected = await onRemote.getListMovieWeekUseCase();
+        final result = await onRemote.getListMovieWeekUseCase();
 
         // Assert
-        expect(expected, ListMovie.success(list: listMovie));
+        expect(result, ListMovie.success(list: listMovie));
         verify(mockRemoteRepository.getPopularMoviesWeek());
       },
     );
@@ -102,11 +102,11 @@ void main() {
             .thenThrow(serverExcep);
 
         // Act
-        final expected = await onRemote.getListMovieWeekUseCase();
+        final result = await onRemote.getListMovieWeekUseCase();
 
         // Assert
 
-        expect(expected, ListMovie.failure(fail: remoteFail));
+        expect(result, ListMovie.failure(fail: remoteFail));
         verify(mockRemoteRepository.getPopularMoviesWeek());
       },
     );
