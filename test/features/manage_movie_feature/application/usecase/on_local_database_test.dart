@@ -34,6 +34,7 @@ void main() {
     yield listMovie;
   }
 
+// Test for showSavedMoviesUseCase() function
   test(
     'Should return a ListMovie object stream',
     () async {
@@ -50,6 +51,7 @@ void main() {
     },
   );
 
+// Test for saveMovieUseCase() function
   group('saveMovieUseCase:', () {
     test(
       'Should save movie and there is no error',
@@ -66,7 +68,6 @@ void main() {
         verify(mockLocalDataBaseRepository.saveMovie(movie));
       },
     );
-
     test(
       'Should save a movie and there is an error',
       () async {
@@ -83,6 +84,7 @@ void main() {
     );
   });
 
+// Test for deleteMovieUseCase() function
   group('deleteMovieUseCase', () {
     test(
       'Should delete a movie and there is no error',

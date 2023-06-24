@@ -30,6 +30,7 @@ void main() {
   var serverExcep = ServerException('Error');
   var remoteFail = RemoteFailure(serverExcep);
 
+// Test for getListMovieDayUseCase() function
   group('getListMovieDayUseCase:', () {
     test(
       'Should return a ListMovie object in SUCCESS state',
@@ -65,6 +66,7 @@ void main() {
     );
   });
 
+// Test for getListMovieWeekUseCase() function
   group('getListMovieWeekUseCase:', () {
     test(
       'Should return a ListMovie object in SUCCESS state',
