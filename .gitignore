@@ -44,7 +44,12 @@ app.*.map.json
 /android/app/release
 
 # MovieApp project
-/lib/core/
+/lib/core/app_utility/
+/lib/core/database/
+/lib/core/navigation/
+/lib/core/network/
+/lib/core/sharedpreferences/
+/lib/core/theme/
 /lib/features/board_feature/
 /lib/features/online_status_feature/
 /lib/features/change_theme_feature/
