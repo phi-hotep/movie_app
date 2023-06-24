@@ -16,6 +16,7 @@ void main() {
     onLocalDatabase = OnLocalDatabase(mockLocalDataBaseRepository);
   });
 
+  // We create all these variables for test purpose
   var movie = const Movie(
       id: 1,
       movieTitle: 'title',
@@ -25,6 +26,9 @@ void main() {
       moviePopularity: 189);
 
   var listMovie = <Movie>[movie];
+
+  var localExcep = LocalDatabaseException('Error');
+  var localFail = LocalFailure(localExcep);
 
   Stream<List<Movie>> listMovieStream() async* {
     yield listMovie;
@@ -47,8 +51,6 @@ void main() {
   );
 
   group('saveMovieUseCase:', () {
-    var localExcep = const LocalDatabaseException(message: 'Error');
-    final localFail = LocalFailure(localExcep);
     test(
       'Should save movie and there is no error',
       () async {
@@ -82,9 +84,6 @@ void main() {
   });
 
   group('deleteMovieUseCase', () {
-    var localExcep = const LocalDatabaseException(message: 'Error');
-    final localFail = LocalFailure(localExcep);
-
     test(
       'Should delete a movie and there is no error',
       () async {

@@ -17,19 +17,20 @@ void main() {
     onRemote = OnRemote(mockRemoteRepository);
   });
 
+// We create all these variables for test purpose
+  var movie = const Movie(
+      id: 1,
+      movieTitle: 'title',
+      movieDescription: 'hot movie',
+      movieCover: 'cover',
+      movieDate: '06/05/2023',
+      moviePopularity: 189);
+
+  var listMovie = <Movie>[movie];
+  var serverExcep = ServerException('Error');
+  var remoteFail = RemoteFailure(serverExcep);
+
   group('getListMovieDayUseCase:', () {
-    var movie = const Movie(
-        id: 1,
-        movieTitle: 'title',
-        movieDescription: 'hot movie',
-        movieCover: 'cover',
-        movieDate: '06/05/2023',
-        moviePopularity: 189);
-
-    var listMovie = <Movie>[movie];
-    final serverExcep = ServerException(message: 'Error');
-    final remoteFail = RemoteFailure(serverExcep);
-
     test(
       'Should return a ListMovie object in SUCCESS state',
       () async {
@@ -65,18 +66,6 @@ void main() {
   });
 
   group('getListMovieWeekUseCase:', () {
-    var movie = const Movie(
-        id: 1,
-        movieTitle: 'title',
-        movieDescription: 'hot movie',
-        movieCover: 'cover',
-        movieDate: '06/05/2023',
-        moviePopularity: 189);
-
-    var listMovie = <Movie>[movie];
-    final serverExcep = ServerException(message: 'Error');
-    final remoteFail = RemoteFailure(serverExcep);
-
     test(
       'Should return a ListMovie object in SUCCESS state',
       () async {
