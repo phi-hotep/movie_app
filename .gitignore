@@ -46,6 +46,7 @@ app.*.map.json
 # MovieApp project
 /lib/core/app_utility/
 /lib/core/database/
+/lib/core/network/endpoints.dart
 /lib/core/navigation/
 /lib/core/sharedpreferences/
 /lib/core/theme/
