@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../domain/domain_imports.dart';
 import '../../infrastructure/infrastructure_imports.dart';
 
 ///Repository interface for local database methods

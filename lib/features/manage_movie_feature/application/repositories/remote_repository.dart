@@ -1,12 +1,15 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../domain/domain_imports.dart';
 import '../../infrastructure/infrastructure_imports.dart';
 
 ///Repository interface for remote methods
 abstract class RemoteRepository {
-  Future<List<Movie>> getPopularMoviesDay(); // fetch movies of the day
+  /// Fetch movies of the day
+  Future<List<Movie>> getPopularMoviesDay();
 
-  Future<List<Movie>> getPopularMoviesWeek(); // fetch movies of the week
+  /// Fetch movies of the week
+  Future<List<Movie>> getPopularMoviesWeek();
 }
 
 /// Provider for [RemoteRepository]
