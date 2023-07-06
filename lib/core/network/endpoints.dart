@@ -6,8 +6,7 @@ class Endpoints {
   static const String time_window_week = '/week';
   static const String time_window_day = '/day';
   static const String api_key = '';
-  static const String api_token =
-      '';
+  static const String api_token = '';
   static const Duration connectTimeout = Duration(milliseconds: 5000);
   static const Duration receiveTimeout = Duration(milliseconds: 3000);
 }
