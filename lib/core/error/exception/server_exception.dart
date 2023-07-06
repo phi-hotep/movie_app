@@ -16,10 +16,6 @@ enum ServerExceptionType {
 
   notFound,
 
-  methodNotAllowed,
-
-  notAcceptable,
-
   requestTimeout,
 
   sendTimeout,
@@ -43,8 +39,6 @@ enum ServerExceptionType {
   defaultError,
 
   unexpectedError,
-
-  unknown
 }
 
 class ServerException extends Equatable implements Exception {
