@@ -1,0 +1,23 @@
+{
+    "page": 1,
+    "results": [
+        {
+            "id": 1,
+            "original_title": "Day shift",
+            "overview": "Horror movie",
+            "poster_path": "/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
+            "release_date": "2022-10-1",
+            "popularity": 100.799
+        },
+        {
+            "id": 2,
+            "original_title": "Scream",
+            "overview": "Horror movie",
+            "poster_path": "/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
+            "release_date": "2018-04-25",
+            "popularity": 38.799
+        }
+    ],
+    "total_pages": 792,
+    "total_results": 15831
+}
