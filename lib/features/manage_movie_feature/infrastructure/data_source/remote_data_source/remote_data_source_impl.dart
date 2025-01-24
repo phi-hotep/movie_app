@@ -23,7 +23,7 @@ class RemoteDataSourceImpl implements RemoteDataSource {
       } else {
         throw ServerException(response);
       }
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       throw ServerException(e);
     }
   }
@@ -41,7 +41,7 @@ class RemoteDataSourceImpl implements RemoteDataSource {
       } else {
         throw ServerException(response);
       }
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       throw ServerException(e);
     }
   }

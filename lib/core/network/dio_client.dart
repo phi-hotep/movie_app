@@ -43,7 +43,7 @@ class DioClient {
         onReceiveProgress: onReceiveProgress,
       );
       return response;
-    } on DioError {
+    } on DioException {
       rethrow;
     }
   }
