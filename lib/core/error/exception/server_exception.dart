@@ -56,47 +56,47 @@ class ServerException extends Equatable implements Exception {
   factory ServerException(dynamic error) {
     late ServerException serverException;
     try {
-      if (error is DioError) {
+      if (error is DioException) {
         switch (error.type) {
-          case DioErrorType.cancel:
+          case DioExceptionType.cancel:
             serverException = ServerException._(
                 exceptionType: ServerExceptionType.requestCancelled,
                 statusCode: error.response?.statusCode,
                 message: 'Request to the server has been canceled');
             break;
 
-          case DioErrorType.connectionTimeout:
+          case DioExceptionType.connectionTimeout:
             serverException = ServerException._(
                 exceptionType: ServerExceptionType.requestTimeout,
                 statusCode: error.response?.statusCode,
                 message: 'Connection timeout');
             break;
 
-          case DioErrorType.receiveTimeout:
+          case DioExceptionType.receiveTimeout:
             serverException = ServerException._(
                 exceptionType: ServerExceptionType.recieveTimeout,
                 statusCode: error.response?.statusCode,
                 message: 'Receive timeout');
             break;
 
-          case DioErrorType.sendTimeout:
+          case DioExceptionType.sendTimeout:
             serverException = ServerException._(
                 exceptionType: ServerExceptionType.sendTimeout,
                 statusCode: error.response?.statusCode,
                 message: 'Send timeout');
             break;
 
-          case DioErrorType.connectionError:
+          case DioExceptionType.connectionError:
             serverException = ServerException._(
                 exceptionType: ServerExceptionType.connectionError,
                 message: 'Connection error');
             break;
-          case DioErrorType.badCertificate:
+          case DioExceptionType.badCertificate:
             serverException = ServerException._(
                 exceptionType: ServerExceptionType.badCertificate,
                 message: 'Bad certificate');
             break;
-          case DioErrorType.unknown:
+          case DioExceptionType.unknown:
             if (error.error
                 .toString()
                 .contains(ServerExceptionType.SocketException.name)) {
@@ -111,7 +111,7 @@ class ServerException extends Equatable implements Exception {
             }
             break;
 
-          case DioErrorType.badResponse:
+          case DioExceptionType.badResponse:
             switch (error.response?.statusCode) {
               case 400:
                 serverException = ServerException._(
