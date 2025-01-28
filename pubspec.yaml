@@ -36,7 +36,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
-  flutter_slidable: ^2.0.0
+  flutter_slidable: ^3.1.2
 
   equatable: ^2.0.5
 
@@ -80,7 +80,7 @@ dependencies:
   
   #go_router: ^5.1.6
 
-  shared_preferences: ^2.0.15
+  shared_preferences: ^2.4.0
   
   internet_connection_checker: ^1.0.0+1
   
