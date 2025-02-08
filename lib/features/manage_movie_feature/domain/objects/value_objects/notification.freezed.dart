@@ -12,7 +12,7 @@ part of 'notification.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$Notification {
@@ -84,31 +84,36 @@ class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of Notification
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class _$$_SaveSuccessCopyWith<$Res> {
-  factory _$$_SaveSuccessCopyWith(
-          _$_SaveSuccess value, $Res Function(_$_SaveSuccess) then) =
-      __$$_SaveSuccessCopyWithImpl<$Res>;
+abstract class _$$SaveSuccessImplCopyWith<$Res> {
+  factory _$$SaveSuccessImplCopyWith(
+          _$SaveSuccessImpl value, $Res Function(_$SaveSuccessImpl) then) =
+      __$$SaveSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$_SaveSuccessCopyWithImpl<$Res>
-    extends _$NotificationCopyWithImpl<$Res, _$_SaveSuccess>
-    implements _$$_SaveSuccessCopyWith<$Res> {
-  __$$_SaveSuccessCopyWithImpl(
-      _$_SaveSuccess _value, $Res Function(_$_SaveSuccess) _then)
+class __$$SaveSuccessImplCopyWithImpl<$Res>
+    extends _$NotificationCopyWithImpl<$Res, _$SaveSuccessImpl>
+    implements _$$SaveSuccessImplCopyWith<$Res> {
+  __$$SaveSuccessImplCopyWithImpl(
+      _$SaveSuccessImpl _value, $Res Function(_$SaveSuccessImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Notification
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$_SaveSuccess(
+    return _then(_$SaveSuccessImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -119,8 +124,8 @@ class __$$_SaveSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SaveSuccess implements _SaveSuccess {
-  const _$_SaveSuccess({this.message = 'Movie was saved'});
+class _$SaveSuccessImpl implements _SaveSuccess {
+  const _$SaveSuccessImpl({this.message = 'Movie was saved'});
 
   @override
   @JsonKey()
@@ -132,21 +137,23 @@ class _$_SaveSuccess implements _SaveSuccess {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SaveSuccess &&
+            other is _$SaveSuccessImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Notification
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SaveSuccessCopyWith<_$_SaveSuccess> get copyWith =>
-      __$$_SaveSuccessCopyWithImpl<_$_SaveSuccess>(this, _$identity);
+  _$$SaveSuccessImplCopyWith<_$SaveSuccessImpl> get copyWith =>
+      __$$SaveSuccessImplCopyWithImpl<_$SaveSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -224,37 +231,42 @@ class _$_SaveSuccess implements _SaveSuccess {
 }
 
 abstract class _SaveSuccess implements Notification {
-  const factory _SaveSuccess({final String message}) = _$_SaveSuccess;
+  const factory _SaveSuccess({final String message}) = _$SaveSuccessImpl;
 
   String get message;
-  @JsonKey(ignore: true)
-  _$$_SaveSuccessCopyWith<_$_SaveSuccess> get copyWith =>
+
+  /// Create a copy of Notification
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SaveSuccessImplCopyWith<_$SaveSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_SaveErrorCopyWith<$Res> {
-  factory _$$_SaveErrorCopyWith(
-          _$_SaveError value, $Res Function(_$_SaveError) then) =
-      __$$_SaveErrorCopyWithImpl<$Res>;
+abstract class _$$SaveErrorImplCopyWith<$Res> {
+  factory _$$SaveErrorImplCopyWith(
+          _$SaveErrorImpl value, $Res Function(_$SaveErrorImpl) then) =
+      __$$SaveErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LocalFailure fail});
 }
 
 /// @nodoc
-class __$$_SaveErrorCopyWithImpl<$Res>
-    extends _$NotificationCopyWithImpl<$Res, _$_SaveError>
-    implements _$$_SaveErrorCopyWith<$Res> {
-  __$$_SaveErrorCopyWithImpl(
-      _$_SaveError _value, $Res Function(_$_SaveError) _then)
+class __$$SaveErrorImplCopyWithImpl<$Res>
+    extends _$NotificationCopyWithImpl<$Res, _$SaveErrorImpl>
+    implements _$$SaveErrorImplCopyWith<$Res> {
+  __$$SaveErrorImplCopyWithImpl(
+      _$SaveErrorImpl _value, $Res Function(_$SaveErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Notification
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? fail = null,
   }) {
-    return _then(_$_SaveError(
+    return _then(_$SaveErrorImpl(
       fail: null == fail
           ? _value.fail
           : fail // ignore: cast_nullable_to_non_nullable
@@ -265,8 +277,8 @@ class __$$_SaveErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SaveError implements _SaveError {
-  const _$_SaveError({required this.fail});
+class _$SaveErrorImpl implements _SaveError {
+  const _$SaveErrorImpl({required this.fail});
 
   @override
   final LocalFailure fail;
@@ -277,21 +289,23 @@ class _$_SaveError implements _SaveError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SaveError &&
+            other is _$SaveErrorImpl &&
             (identical(other.fail, fail) || other.fail == fail));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, fail);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Notification
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SaveErrorCopyWith<_$_SaveError> get copyWith =>
-      __$$_SaveErrorCopyWithImpl<_$_SaveError>(this, _$identity);
+  _$$SaveErrorImplCopyWith<_$SaveErrorImpl> get copyWith =>
+      __$$SaveErrorImplCopyWithImpl<_$SaveErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -369,37 +383,43 @@ class _$_SaveError implements _SaveError {
 }
 
 abstract class _SaveError implements Notification {
-  const factory _SaveError({required final LocalFailure fail}) = _$_SaveError;
+  const factory _SaveError({required final LocalFailure fail}) =
+      _$SaveErrorImpl;
 
   LocalFailure get fail;
-  @JsonKey(ignore: true)
-  _$$_SaveErrorCopyWith<_$_SaveError> get copyWith =>
+
+  /// Create a copy of Notification
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SaveErrorImplCopyWith<_$SaveErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DeleteSuccessCopyWith<$Res> {
-  factory _$$_DeleteSuccessCopyWith(
-          _$_DeleteSuccess value, $Res Function(_$_DeleteSuccess) then) =
-      __$$_DeleteSuccessCopyWithImpl<$Res>;
+abstract class _$$DeleteSuccessImplCopyWith<$Res> {
+  factory _$$DeleteSuccessImplCopyWith(
+          _$DeleteSuccessImpl value, $Res Function(_$DeleteSuccessImpl) then) =
+      __$$DeleteSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$_DeleteSuccessCopyWithImpl<$Res>
-    extends _$NotificationCopyWithImpl<$Res, _$_DeleteSuccess>
-    implements _$$_DeleteSuccessCopyWith<$Res> {
-  __$$_DeleteSuccessCopyWithImpl(
-      _$_DeleteSuccess _value, $Res Function(_$_DeleteSuccess) _then)
+class __$$DeleteSuccessImplCopyWithImpl<$Res>
+    extends _$NotificationCopyWithImpl<$Res, _$DeleteSuccessImpl>
+    implements _$$DeleteSuccessImplCopyWith<$Res> {
+  __$$DeleteSuccessImplCopyWithImpl(
+      _$DeleteSuccessImpl _value, $Res Function(_$DeleteSuccessImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Notification
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$_DeleteSuccess(
+    return _then(_$DeleteSuccessImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -410,8 +430,8 @@ class __$$_DeleteSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DeleteSuccess implements _DeleteSuccess {
-  const _$_DeleteSuccess({this.message = 'Movie was deleted'});
+class _$DeleteSuccessImpl implements _DeleteSuccess {
+  const _$DeleteSuccessImpl({this.message = 'Movie was deleted'});
 
   @override
   @JsonKey()
@@ -423,21 +443,23 @@ class _$_DeleteSuccess implements _DeleteSuccess {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DeleteSuccess &&
+            other is _$DeleteSuccessImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Notification
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DeleteSuccessCopyWith<_$_DeleteSuccess> get copyWith =>
-      __$$_DeleteSuccessCopyWithImpl<_$_DeleteSuccess>(this, _$identity);
+  _$$DeleteSuccessImplCopyWith<_$DeleteSuccessImpl> get copyWith =>
+      __$$DeleteSuccessImplCopyWithImpl<_$DeleteSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -515,37 +537,42 @@ class _$_DeleteSuccess implements _DeleteSuccess {
 }
 
 abstract class _DeleteSuccess implements Notification {
-  const factory _DeleteSuccess({final String message}) = _$_DeleteSuccess;
+  const factory _DeleteSuccess({final String message}) = _$DeleteSuccessImpl;
 
   String get message;
-  @JsonKey(ignore: true)
-  _$$_DeleteSuccessCopyWith<_$_DeleteSuccess> get copyWith =>
+
+  /// Create a copy of Notification
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DeleteSuccessImplCopyWith<_$DeleteSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DeleteErrorCopyWith<$Res> {
-  factory _$$_DeleteErrorCopyWith(
-          _$_DeleteError value, $Res Function(_$_DeleteError) then) =
-      __$$_DeleteErrorCopyWithImpl<$Res>;
+abstract class _$$DeleteErrorImplCopyWith<$Res> {
+  factory _$$DeleteErrorImplCopyWith(
+          _$DeleteErrorImpl value, $Res Function(_$DeleteErrorImpl) then) =
+      __$$DeleteErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LocalFailure fail});
 }
 
 /// @nodoc
-class __$$_DeleteErrorCopyWithImpl<$Res>
-    extends _$NotificationCopyWithImpl<$Res, _$_DeleteError>
-    implements _$$_DeleteErrorCopyWith<$Res> {
-  __$$_DeleteErrorCopyWithImpl(
-      _$_DeleteError _value, $Res Function(_$_DeleteError) _then)
+class __$$DeleteErrorImplCopyWithImpl<$Res>
+    extends _$NotificationCopyWithImpl<$Res, _$DeleteErrorImpl>
+    implements _$$DeleteErrorImplCopyWith<$Res> {
+  __$$DeleteErrorImplCopyWithImpl(
+      _$DeleteErrorImpl _value, $Res Function(_$DeleteErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Notification
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? fail = null,
   }) {
-    return _then(_$_DeleteError(
+    return _then(_$DeleteErrorImpl(
       fail: null == fail
           ? _value.fail
           : fail // ignore: cast_nullable_to_non_nullable
@@ -556,8 +583,8 @@ class __$$_DeleteErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DeleteError implements _DeleteError {
-  const _$_DeleteError({required this.fail});
+class _$DeleteErrorImpl implements _DeleteError {
+  const _$DeleteErrorImpl({required this.fail});
 
   @override
   final LocalFailure fail;
@@ -568,21 +595,23 @@ class _$_DeleteError implements _DeleteError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DeleteError &&
+            other is _$DeleteErrorImpl &&
             (identical(other.fail, fail) || other.fail == fail));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, fail);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Notification
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DeleteErrorCopyWith<_$_DeleteError> get copyWith =>
-      __$$_DeleteErrorCopyWithImpl<_$_DeleteError>(this, _$identity);
+  _$$DeleteErrorImplCopyWith<_$DeleteErrorImpl> get copyWith =>
+      __$$DeleteErrorImplCopyWithImpl<_$DeleteErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -661,10 +690,13 @@ class _$_DeleteError implements _DeleteError {
 
 abstract class _DeleteError implements Notification {
   const factory _DeleteError({required final LocalFailure fail}) =
-      _$_DeleteError;
+      _$DeleteErrorImpl;
 
   LocalFailure get fail;
-  @JsonKey(ignore: true)
-  _$$_DeleteErrorCopyWith<_$_DeleteError> get copyWith =>
+
+  /// Create a copy of Notification
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DeleteErrorImplCopyWith<_$DeleteErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

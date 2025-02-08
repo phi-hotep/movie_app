@@ -1,7 +1,17 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../../../core/database/database_imports.dart';
 import '../../infrastructure_imports.dart';
+
+part 'local_data_source.g.dart';
+
+///Provider of [LocalDataSource]
+@riverpod
+LocalDataSource localDataSource(Ref ref) {
+  final daoProv = ref.watch(movieDaoProvider);
+  return LocalDataSourceImpl(daoProv);
+}
 
 /// This abstract class represents local data source for the app
 abstract class LocalDataSource {
@@ -13,8 +23,8 @@ abstract class LocalDataSource {
   Stream<List<MovieDto>> watchAllMoviesFromDatabase();
 }
 
-///Provider of [LocalDataSource]
-final localDataSourceProvider = Provider<LocalDataSource>((ref) {
-  final daoProv = ref.watch(movieDaoProvider);
-  return LocalDataSourceImpl(daoProv);
-});
+
+// final localDataSourceProvider = Provider<LocalDataSource>((ref) {
+//   final daoProv = ref.watch(movieDaoProvider);
+//   return LocalDataSourceImpl(daoProv);
+// });

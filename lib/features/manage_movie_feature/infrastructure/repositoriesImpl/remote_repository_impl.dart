@@ -4,6 +4,8 @@ import '../../domain/domain_imports.dart';
 import '../converters.dart';
 import '../infrastructure_imports.dart';
 
+/// This class implements [RemoteRepository] class, located in
+/// Application layer.
 class RemoteRepositoryImpl implements RemoteRepository {
   final RemoteDataSource remoteDataSource;
   RemoteRepositoryImpl({required this.remoteDataSource});

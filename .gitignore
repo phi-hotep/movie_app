@@ -47,13 +47,9 @@ app.*.map.json
 /lib/core/app_utility/
 /lib/core/network/endpoints.dart
 /lib/core/navigation/
-/lib/core/sharedpreferences/
 /lib/core/theme/
 /lib/features/board_feature/
 /lib/features/online_status_feature/
 /lib/features/change_theme_feature/
-/lib/features/manage_movie_feature/presentation/
-/lib/main.dart
-/lib/movie_app.dart
 /test/features/manage_movie_feature/infrastructure/data_source/local_data_source/local_data_source_impl_test.dart
 /test/fixture/movie_table_data_fixture.dart
