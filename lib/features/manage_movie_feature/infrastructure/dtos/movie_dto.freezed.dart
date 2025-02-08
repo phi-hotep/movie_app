@@ -12,7 +12,7 @@ part of 'movie_dto.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 MovieDto _$MovieDtoFromJson(Map<String, dynamic> json) {
   return _MovieDto.fromJson(json);
@@ -30,8 +30,12 @@ mixin _$MovieDto {
   String get releaseDate => throw _privateConstructorUsedError;
   double get popularity => throw _privateConstructorUsedError;
 
+  /// Serializes this MovieDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MovieDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MovieDtoCopyWith<MovieDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -60,6 +64,8 @@ class _$MovieDtoCopyWithImpl<$Res, $Val extends MovieDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MovieDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -100,10 +106,11 @@ class _$MovieDtoCopyWithImpl<$Res, $Val extends MovieDto>
 }
 
 /// @nodoc
-abstract class _$$_MovieDtoCopyWith<$Res> implements $MovieDtoCopyWith<$Res> {
-  factory _$$_MovieDtoCopyWith(
-          _$_MovieDto value, $Res Function(_$_MovieDto) then) =
-      __$$_MovieDtoCopyWithImpl<$Res>;
+abstract class _$$MovieDtoImplCopyWith<$Res>
+    implements $MovieDtoCopyWith<$Res> {
+  factory _$$MovieDtoImplCopyWith(
+          _$MovieDtoImpl value, $Res Function(_$MovieDtoImpl) then) =
+      __$$MovieDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -116,13 +123,15 @@ abstract class _$$_MovieDtoCopyWith<$Res> implements $MovieDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_MovieDtoCopyWithImpl<$Res>
-    extends _$MovieDtoCopyWithImpl<$Res, _$_MovieDto>
-    implements _$$_MovieDtoCopyWith<$Res> {
-  __$$_MovieDtoCopyWithImpl(
-      _$_MovieDto _value, $Res Function(_$_MovieDto) _then)
+class __$$MovieDtoImplCopyWithImpl<$Res>
+    extends _$MovieDtoCopyWithImpl<$Res, _$MovieDtoImpl>
+    implements _$$MovieDtoImplCopyWith<$Res> {
+  __$$MovieDtoImplCopyWithImpl(
+      _$MovieDtoImpl _value, $Res Function(_$MovieDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MovieDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -133,7 +142,7 @@ class __$$_MovieDtoCopyWithImpl<$Res>
     Object? releaseDate = null,
     Object? popularity = null,
   }) {
-    return _then(_$_MovieDto(
+    return _then(_$MovieDtoImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -164,8 +173,8 @@ class __$$_MovieDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_MovieDto implements _MovieDto {
-  const _$_MovieDto(
+class _$MovieDtoImpl implements _MovieDto {
+  const _$MovieDtoImpl(
       {required this.id,
       @JsonKey(name: 'original_title') required this.originalTitle,
       required this.overview,
@@ -173,8 +182,8 @@ class _$_MovieDto implements _MovieDto {
       @JsonKey(name: 'release_date') required this.releaseDate,
       required this.popularity});
 
-  factory _$_MovieDto.fromJson(Map<String, dynamic> json) =>
-      _$$_MovieDtoFromJson(json);
+  factory _$MovieDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MovieDtoImplFromJson(json);
 
   @override
   final int id;
@@ -198,10 +207,10 @@ class _$_MovieDto implements _MovieDto {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MovieDto &&
+            other is _$MovieDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.originalTitle, originalTitle) ||
                 other.originalTitle == originalTitle) &&
@@ -215,20 +224,22 @@ class _$_MovieDto implements _MovieDto {
                 other.popularity == popularity));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, originalTitle, overview,
       posterPath, releaseDate, popularity);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MovieDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MovieDtoCopyWith<_$_MovieDto> get copyWith =>
-      __$$_MovieDtoCopyWithImpl<_$_MovieDto>(this, _$identity);
+  _$$MovieDtoImplCopyWith<_$MovieDtoImpl> get copyWith =>
+      __$$MovieDtoImplCopyWithImpl<_$MovieDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MovieDtoToJson(
+    return _$$MovieDtoImplToJson(
       this,
     );
   }
@@ -241,9 +252,10 @@ abstract class _MovieDto implements MovieDto {
       required final String overview,
       @JsonKey(name: 'poster_path') required final String posterPath,
       @JsonKey(name: 'release_date') required final String releaseDate,
-      required final double popularity}) = _$_MovieDto;
+      required final double popularity}) = _$MovieDtoImpl;
 
-  factory _MovieDto.fromJson(Map<String, dynamic> json) = _$_MovieDto.fromJson;
+  factory _MovieDto.fromJson(Map<String, dynamic> json) =
+      _$MovieDtoImpl.fromJson;
 
   @override
   int get id;
@@ -260,8 +272,11 @@ abstract class _MovieDto implements MovieDto {
   String get releaseDate;
   @override
   double get popularity;
+
+  /// Create a copy of MovieDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_MovieDtoCopyWith<_$_MovieDto> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$MovieDtoImplCopyWith<_$MovieDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
