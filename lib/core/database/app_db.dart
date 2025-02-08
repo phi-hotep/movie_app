@@ -23,8 +23,7 @@ class MovieDatabase extends _$MovieDatabase {
 /// helper function that returns an instance of QueryExecutor
 LazyDatabase _openDatabase() {
   return LazyDatabase(() async {
-    final dbFolder =
-        '${(await getExternalStorageDirectory())!.path.substring(0, 20)}MovieApp/';
+    final dbFolder = '${(await getExternalStorageDirectory())!.path}MovieApp/';
     final file = File(p.join(dbFolder,
         'dbmovie.sqlite')); //The name of the file where data are stored
     return NativeDatabase(file,
