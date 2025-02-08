@@ -58,9 +58,10 @@ class $MovieTableTable extends MovieTable
         popularityEntry
       ];
   @override
-  String get aliasedName => _alias ?? 'movie_table';
+  String get aliasedName => _alias ?? actualTableName;
   @override
-  String get actualTableName => 'movie_table';
+  String get actualTableName => $name;
+  static const String $name = 'movie_table';
   @override
   VerificationContext validateIntegrity(Insertable<MovieTableData> instance,
       {bool isInserting = false}) {
@@ -217,6 +218,27 @@ class MovieTableData extends DataClass implements Insertable<MovieTableData> {
         releaseDateEntry: releaseDateEntry ?? this.releaseDateEntry,
         popularityEntry: popularityEntry ?? this.popularityEntry,
       );
+  MovieTableData copyWithCompanion(MovieTableCompanion data) {
+    return MovieTableData(
+      id: data.id.present ? data.id.value : this.id,
+      originalTitleEntry: data.originalTitleEntry.present
+          ? data.originalTitleEntry.value
+          : this.originalTitleEntry,
+      overviewEntry: data.overviewEntry.present
+          ? data.overviewEntry.value
+          : this.overviewEntry,
+      posterPathEntry: data.posterPathEntry.present
+          ? data.posterPathEntry.value
+          : this.posterPathEntry,
+      releaseDateEntry: data.releaseDateEntry.present
+          ? data.releaseDateEntry.value
+          : this.releaseDateEntry,
+      popularityEntry: data.popularityEntry.present
+          ? data.popularityEntry.value
+          : this.popularityEntry,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('MovieTableData(')
@@ -348,6 +370,7 @@ class MovieTableCompanion extends UpdateCompanion<MovieTableData> {
 
 abstract class _$MovieDatabase extends GeneratedDatabase {
   _$MovieDatabase(QueryExecutor e) : super(e);
+  $MovieDatabaseManager get managers => $MovieDatabaseManager(this);
   late final $MovieTableTable movieTable = $MovieTableTable(this);
   late final MovieDao movieDao = MovieDao(this as MovieDatabase);
   @override
@@ -355,6 +378,203 @@ abstract class _$MovieDatabase extends GeneratedDatabase {
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
   @override
   List<DatabaseSchemaEntity> get allSchemaEntities => [movieTable];
+}
+
+typedef $$MovieTableTableCreateCompanionBuilder = MovieTableCompanion Function({
+  Value<int> id,
+  required String originalTitleEntry,
+  required String overviewEntry,
+  required String posterPathEntry,
+  required String releaseDateEntry,
+  required double popularityEntry,
+});
+typedef $$MovieTableTableUpdateCompanionBuilder = MovieTableCompanion Function({
+  Value<int> id,
+  Value<String> originalTitleEntry,
+  Value<String> overviewEntry,
+  Value<String> posterPathEntry,
+  Value<String> releaseDateEntry,
+  Value<double> popularityEntry,
+});
+
+class $$MovieTableTableFilterComposer
+    extends Composer<_$MovieDatabase, $MovieTableTable> {
+  $$MovieTableTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get originalTitleEntry => $composableBuilder(
+      column: $table.originalTitleEntry,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get overviewEntry => $composableBuilder(
+      column: $table.overviewEntry, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get posterPathEntry => $composableBuilder(
+      column: $table.posterPathEntry,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get releaseDateEntry => $composableBuilder(
+      column: $table.releaseDateEntry,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get popularityEntry => $composableBuilder(
+      column: $table.popularityEntry,
+      builder: (column) => ColumnFilters(column));
+}
+
+class $$MovieTableTableOrderingComposer
+    extends Composer<_$MovieDatabase, $MovieTableTable> {
+  $$MovieTableTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get originalTitleEntry => $composableBuilder(
+      column: $table.originalTitleEntry,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get overviewEntry => $composableBuilder(
+      column: $table.overviewEntry,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get posterPathEntry => $composableBuilder(
+      column: $table.posterPathEntry,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get releaseDateEntry => $composableBuilder(
+      column: $table.releaseDateEntry,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get popularityEntry => $composableBuilder(
+      column: $table.popularityEntry,
+      builder: (column) => ColumnOrderings(column));
+}
+
+class $$MovieTableTableAnnotationComposer
+    extends Composer<_$MovieDatabase, $MovieTableTable> {
+  $$MovieTableTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get originalTitleEntry => $composableBuilder(
+      column: $table.originalTitleEntry, builder: (column) => column);
+
+  GeneratedColumn<String> get overviewEntry => $composableBuilder(
+      column: $table.overviewEntry, builder: (column) => column);
+
+  GeneratedColumn<String> get posterPathEntry => $composableBuilder(
+      column: $table.posterPathEntry, builder: (column) => column);
+
+  GeneratedColumn<String> get releaseDateEntry => $composableBuilder(
+      column: $table.releaseDateEntry, builder: (column) => column);
+
+  GeneratedColumn<double> get popularityEntry => $composableBuilder(
+      column: $table.popularityEntry, builder: (column) => column);
+}
+
+class $$MovieTableTableTableManager extends RootTableManager<
+    _$MovieDatabase,
+    $MovieTableTable,
+    MovieTableData,
+    $$MovieTableTableFilterComposer,
+    $$MovieTableTableOrderingComposer,
+    $$MovieTableTableAnnotationComposer,
+    $$MovieTableTableCreateCompanionBuilder,
+    $$MovieTableTableUpdateCompanionBuilder,
+    (
+      MovieTableData,
+      BaseReferences<_$MovieDatabase, $MovieTableTable, MovieTableData>
+    ),
+    MovieTableData,
+    PrefetchHooks Function()> {
+  $$MovieTableTableTableManager(_$MovieDatabase db, $MovieTableTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$MovieTableTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$MovieTableTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$MovieTableTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<String> originalTitleEntry = const Value.absent(),
+            Value<String> overviewEntry = const Value.absent(),
+            Value<String> posterPathEntry = const Value.absent(),
+            Value<String> releaseDateEntry = const Value.absent(),
+            Value<double> popularityEntry = const Value.absent(),
+          }) =>
+              MovieTableCompanion(
+            id: id,
+            originalTitleEntry: originalTitleEntry,
+            overviewEntry: overviewEntry,
+            posterPathEntry: posterPathEntry,
+            releaseDateEntry: releaseDateEntry,
+            popularityEntry: popularityEntry,
+          ),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            required String originalTitleEntry,
+            required String overviewEntry,
+            required String posterPathEntry,
+            required String releaseDateEntry,
+            required double popularityEntry,
+          }) =>
+              MovieTableCompanion.insert(
+            id: id,
+            originalTitleEntry: originalTitleEntry,
+            overviewEntry: overviewEntry,
+            posterPathEntry: posterPathEntry,
+            releaseDateEntry: releaseDateEntry,
+            popularityEntry: popularityEntry,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$MovieTableTableProcessedTableManager = ProcessedTableManager<
+    _$MovieDatabase,
+    $MovieTableTable,
+    MovieTableData,
+    $$MovieTableTableFilterComposer,
+    $$MovieTableTableOrderingComposer,
+    $$MovieTableTableAnnotationComposer,
+    $$MovieTableTableCreateCompanionBuilder,
+    $$MovieTableTableUpdateCompanionBuilder,
+    (
+      MovieTableData,
+      BaseReferences<_$MovieDatabase, $MovieTableTable, MovieTableData>
+    ),
+    MovieTableData,
+    PrefetchHooks Function()>;
+
+class $MovieDatabaseManager {
+  final _$MovieDatabase _db;
+  $MovieDatabaseManager(this._db);
+  $$MovieTableTableTableManager get movieTable =>
+      $$MovieTableTableTableManager(_db, _db.movieTable);
 }
 
 mixin _$MovieDaoMixin on DatabaseAccessor<MovieDatabase> {

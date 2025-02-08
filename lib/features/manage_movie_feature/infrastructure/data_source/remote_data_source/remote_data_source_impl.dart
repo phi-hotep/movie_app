@@ -15,6 +15,7 @@ class RemoteDataSourceImpl implements RemoteDataSource {
     try {
       final response =
           await dioClient.get(Endpoints.media_type + Endpoints.time_window_day);
+
       if (response.statusCode == 200) {
         final listMovieDto = (response.data['results'] as List)
             .map((elt) => MovieDto.fromJson(elt))

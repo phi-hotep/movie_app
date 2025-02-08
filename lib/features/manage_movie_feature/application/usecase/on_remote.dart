@@ -1,8 +1,18 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../../core/error/error_imports.dart';
 import '../../domain/domain_imports.dart';
 import '../application_imports.dart';
+
+part 'on_remote.g.dart';
+
+/// here the [onRemoteProvider]
+@riverpod
+OnRemote onRemote(Ref ref) {
+  final repo = ref.watch(remoteRepositoryProvider);
+  return OnRemote(repo);
+}
 
 class OnRemote {
   final RemoteRepository remoteRepo;
@@ -27,8 +37,3 @@ class OnRemote {
     }
   }
 }
-
-final onRemoteProvider = Provider<OnRemote>((ref) {
-  final repo = ref.watch(remoteRepositoryProvider);
-  return OnRemote(repo);
-});

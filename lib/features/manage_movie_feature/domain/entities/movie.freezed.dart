@@ -12,7 +12,7 @@ part of 'movie.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$Movie {
@@ -23,7 +23,9 @@ mixin _$Movie {
   String get movieDate => throw _privateConstructorUsedError;
   double get moviePopularity => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Movie
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MovieCopyWith<Movie> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -51,6 +53,8 @@ class _$MovieCopyWithImpl<$Res, $Val extends Movie>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Movie
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -91,9 +95,10 @@ class _$MovieCopyWithImpl<$Res, $Val extends Movie>
 }
 
 /// @nodoc
-abstract class _$$_MovieCopyWith<$Res> implements $MovieCopyWith<$Res> {
-  factory _$$_MovieCopyWith(_$_Movie value, $Res Function(_$_Movie) then) =
-      __$$_MovieCopyWithImpl<$Res>;
+abstract class _$$MovieImplCopyWith<$Res> implements $MovieCopyWith<$Res> {
+  factory _$$MovieImplCopyWith(
+          _$MovieImpl value, $Res Function(_$MovieImpl) then) =
+      __$$MovieImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -106,11 +111,15 @@ abstract class _$$_MovieCopyWith<$Res> implements $MovieCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res, _$_Movie>
-    implements _$$_MovieCopyWith<$Res> {
-  __$$_MovieCopyWithImpl(_$_Movie _value, $Res Function(_$_Movie) _then)
+class __$$MovieImplCopyWithImpl<$Res>
+    extends _$MovieCopyWithImpl<$Res, _$MovieImpl>
+    implements _$$MovieImplCopyWith<$Res> {
+  __$$MovieImplCopyWithImpl(
+      _$MovieImpl _value, $Res Function(_$MovieImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Movie
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -121,7 +130,7 @@ class __$$_MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res, _$_Movie>
     Object? movieDate = null,
     Object? moviePopularity = null,
   }) {
-    return _then(_$_Movie(
+    return _then(_$MovieImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -152,8 +161,8 @@ class __$$_MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res, _$_Movie>
 
 /// @nodoc
 
-class _$_Movie implements _Movie {
-  const _$_Movie(
+class _$MovieImpl implements _Movie {
+  const _$MovieImpl(
       {required this.id,
       required this.movieTitle,
       required this.movieDescription,
@@ -180,10 +189,10 @@ class _$_Movie implements _Movie {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Movie &&
+            other is _$MovieImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.movieTitle, movieTitle) ||
                 other.movieTitle == movieTitle) &&
@@ -201,11 +210,13 @@ class _$_Movie implements _Movie {
   int get hashCode => Object.hash(runtimeType, id, movieTitle, movieDescription,
       movieCover, movieDate, moviePopularity);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Movie
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MovieCopyWith<_$_Movie> get copyWith =>
-      __$$_MovieCopyWithImpl<_$_Movie>(this, _$identity);
+  _$$MovieImplCopyWith<_$MovieImpl> get copyWith =>
+      __$$MovieImplCopyWithImpl<_$MovieImpl>(this, _$identity);
 }
 
 abstract class _Movie implements Movie {
@@ -215,7 +226,7 @@ abstract class _Movie implements Movie {
       required final String movieDescription,
       required final String movieCover,
       required final String movieDate,
-      required final double moviePopularity}) = _$_Movie;
+      required final double moviePopularity}) = _$MovieImpl;
 
   @override
   int get id;
@@ -229,8 +240,11 @@ abstract class _Movie implements Movie {
   String get movieDate;
   @override
   double get moviePopularity;
+
+  /// Create a copy of Movie
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_MovieCopyWith<_$_Movie> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$MovieImplCopyWith<_$MovieImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
