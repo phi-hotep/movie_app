@@ -1,0 +1,14 @@
+export 'controller/delete_movie_controller.dart';
+export 'controller/details_controller.dart';
+export 'controller/movie_of_day_controller.dart';
+export 'controller/movie_of_week_controller.dart';
+export 'controller/watch_later_controller.dart';
+export 'page/details.dart';
+export 'page/movie_of_day.dart';
+export 'page/movie_of_week.dart';
+export 'page/trends.dart';
+export 'page/watch_later.dart';
+export 'widget/build_database_error_msg.dart';
+export 'widget/build_list_movies.dart';
+export 'widget/build_list_saved_movies.dart';
+export 'widget/build_server_error_msg.dart';
