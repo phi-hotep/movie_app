@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../change_theme_feature/presentation/page/app_theme_button.dart';
@@ -17,7 +18,18 @@ class Trends extends ConsumerStatefulWidget {
   ConsumerState<ConsumerStatefulWidget> createState() => _TrendsState();
 }
 
-class _TrendsState extends ConsumerState<Trends> {
+class _TrendsState extends ConsumerState<Trends>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _annimController;
+
+  @override
+  initState() {
+    super.initState();
+    _annimController = AnimationController(
+      vsync: this,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return PageStorage(
@@ -31,7 +43,21 @@ class _TrendsState extends ConsumerState<Trends> {
               'Trends',
               style: Theme.of(context).textTheme.headlineSmall,
             ),
-            leading: const AppThemeButton(),
+            leading: const AppThemeButton()
+                .animate(
+                  delay: 100.ms,
+                  controller: _annimController,
+                  autoPlay: true,
+                  onPlay: (controller) {
+                    controller.repeat(
+                      reverse: true,
+                    );
+                  },
+                )
+                .shimmer(
+                  color: const Color.fromARGB(255, 93, 175, 0),
+                  duration: 1.seconds,
+                ),
             bottom: TabBar(
               indicatorSize: TabBarIndicatorSize.tab,
               indicator: BoxDecoration(
