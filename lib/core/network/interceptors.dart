@@ -1,12 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
-
-import 'network_imports.dart';
+import 'package:movie_app/env/env.dart'; // from env.dart
 
 /// This interceptor is used to show request and response logs
 class LoggerInterceptor extends Interceptor {
-  Logger logger =
-      Logger(printer: PrettyPrinter(methodCount: 0, printTime: true));
+  Logger logger = Logger(
+      printer: PrettyPrinter(
+          methodCount: 0, dateTimeFormat: DateTimeFormat.dateAndTime));
 
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
@@ -42,7 +42,7 @@ class AuthorizationInterceptor extends Interceptor {
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     if (_needAuthorizationHeader(options)) {
       // adds the access-token with the header
-      options.headers['Authorization'] = Endpoints.api_token;
+      options.headers['Authorization'] = Env.api_token; // from env.dart
     }
     handler.next(options); // continue with the request
   }
