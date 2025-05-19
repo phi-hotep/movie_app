@@ -9,6 +9,7 @@
 .history
 .svn/
 migrate_working_dir/
+*env
 
 # IntelliJ related
 *.iml
@@ -53,3 +54,4 @@ app.*.map.json
 /lib/features/change_theme_feature/
 /test/features/manage_movie_feature/infrastructure/data_source/local_data_source/local_data_source_impl_test.dart
 /test/fixture/movie_table_data_fixture.dart
+/lib/env/env.g.dart
