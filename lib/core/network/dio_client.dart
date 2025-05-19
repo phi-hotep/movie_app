@@ -1,7 +1,8 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:dio/dio.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:movie_app/env/env.dart'; // from env.dart
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'network_imports.dart';
 
@@ -10,7 +11,7 @@ final dioClientProvider = Provider<DioClient>((ref) {
   return DioClient();
 });
 
-const String _key = Endpoints.api_key; // Api key must be private
+final _key = Env.themovieappapi_key;
 
 class DioClient {
   late final Dio _dio;

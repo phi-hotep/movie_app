@@ -81,6 +81,8 @@ dependencies:
   internet_popup: ^1.0.8+4
   google_fonts: ^6.2.1
   flutter_animate: ^4.5.2
+  envied: ^1.1.1
+  
   
   
   
@@ -108,6 +110,7 @@ dev_dependencies:
   mockito: ^5.4.0
   flutter_launcher_icons: ^0.14.3
   freezed: ^2.3.2
+  envied_generator: ^1.1.1
 
 flutter_icons:
   android: "launcher_icon"
