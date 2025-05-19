@@ -11,7 +11,7 @@ final dioClientProvider = Provider<DioClient>((ref) {
   return DioClient();
 });
 
-final _key = Env.themovieappapi_key;
+final _key = Env.api_key;
 
 class DioClient {
   late final Dio _dio;
